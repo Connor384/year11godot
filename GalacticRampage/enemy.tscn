@@ -1,0 +1,75 @@
+[gd_scene load_steps=13 format=3 uid="uid://dph4urb6xlcqv"]
+
+[ext_resource type="Script" path="res://EnemyGolem.gd" id="1_vc5um"]
+[ext_resource type="Texture2D" uid="uid://cqmuhpespqxsx" path="res://Sprites/AlienGooWithGun/Sprite-0003.png" id="2_icglo"]
+[ext_resource type="Texture2D" uid="uid://bjqtmjf2nig8q" path="res://Sprites/AlienGooWithGun/Sprite-0004.png" id="3_rb07x"]
+[ext_resource type="Texture2D" uid="uid://b0mcc35biv2dh" path="res://Sprites/AlienGooWithGun/Sprite-0005.png" id="4_rqt7j"]
+[ext_resource type="Texture2D" uid="uid://c008n06ghk4su" path="res://Sprites/AlienGooWithGun/Sprite-0006.png" id="5_lg2v4"]
+[ext_resource type="Texture2D" uid="uid://bo4yqy7l52ouh" path="res://Sprites/AlienGooWithGun/Sprite-0007.png" id="6_4ccxk"]
+[ext_resource type="Texture2D" uid="uid://ddpauqeif5ffp" path="res://Sprites/AlienGooWithGun/Sprite-0008.png" id="7_p6yse"]
+[ext_resource type="Texture2D" uid="uid://djthklc7yqagf" path="res://Sprites/AlienGooWithGun/Sprite-0009.png" id="8_xprrr"]
+[ext_resource type="Texture2D" uid="uid://cwv4u0lwvk232" path="res://Sprites/AlienGooWithGun/Sprite-0010.png" id="9_0ka00"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4vkdx"]
+radius = 7.0
+height = 28.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jagg4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_icglo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rb07x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rqt7j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lg2v4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4ccxk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_p6yse")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_xprrr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_0ka00")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i6dmw"]
+radius = 7.0
+height = 28.0
+
+[node name="EnemyGolem" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_vc5um")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 3)
+shape = SubResource("CapsuleShape2D_4vkdx")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jagg4")
+autoplay = "default"
+frame = 7
+frame_progress = 0.126189
+
+[node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(1, 3)
+shape = SubResource("CapsuleShape2D_i6dmw")
+
+[node name="DamageTimer" type="Timer" parent="HurtBox" groups=["Enemy"]]

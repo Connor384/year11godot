@@ -1,14 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://cvhmxcr6p4xge"]
+[gd_scene load_steps=4 format=3 uid="uid://ydrhs7r2qv4l"]
 
-[ext_resource type="Script" path="res://knife.gd" id="1_3ec38"]
-[ext_resource type="Texture2D" uid="uid://c2kl63qxmq24c" path="res://Sprites/Laser Sprites/16.png" id="1_fp8m7"]
+[ext_resource type="Script" path="res://knife.gd" id="1_uaybj"]
+[ext_resource type="Texture2D" uid="uid://c2kl63qxmq24c" path="res://Sprites/Laser Sprites/16.png" id="2_wt1yo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4aaw7"]
 size = Vector2(14.5, 4)
 
 [node name="Knife" type="Area2D" groups=["Weapon"]]
+position = Vector2(-3, 0)
 scale = Vector2(0.919999, 0.919999)
-script = ExtResource("1_3ec38")
+script = ExtResource("1_uaybj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.75, 0)
@@ -16,4 +17,4 @@ shape = SubResource("RectangleShape2D_4aaw7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.0755102, 0.0957446)
-texture = ExtResource("1_fp8m7")
+texture = ExtResource("2_wt1yo")
