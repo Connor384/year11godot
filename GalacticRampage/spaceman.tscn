@@ -96,9 +96,3 @@ position = Vector2(1, -1)
 sprite_frames = SubResource("SpriteFrames_3rrh2")
 animation = &"Running"
 autoplay = "Running"
-
-[node name="KnifeTimer" type="Timer" parent="."]
-wait_time = 0.25
-autostart = true
-
-[connection signal="timeout" from="KnifeTimer" to="." method="_on_knife_timer_timeout"]

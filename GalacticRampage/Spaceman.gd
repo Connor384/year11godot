@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var sprite = $Sprite
 const KNIFE = preload("res://knife.tscn")
 @onready var world = get_node('/root/World')
+const BULLET = preload("res://bullet.tscn")
 var direction = Vector2.ZERO
 
 func _physics_process(delta):
@@ -27,10 +28,9 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+	if Input.is_action_pressed("shoot"):
+		var new_bullet = BULLET.instantiate()
+		new_bullet.global_position = global_position
+		new_bullet.look_at(get_global_mouse_position())
+		add_sibling(new_bullet)
 
-func _on_knife_timer_timeout():
-	var knife = KNIFE.instantiate()
-	knife.global_position = global_position
-	knife.look_at(get_global_mouse_position())
-	#knife.rotate(direction.angle())
-	add_sibling(knife)
