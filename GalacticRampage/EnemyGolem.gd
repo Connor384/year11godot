@@ -1,18 +1,49 @@
 extends CharacterBody2D
 
 
-const SPEED = 50
+
 const JUMP_VELOCITY = -400.0
 @onready var sprite = $Sprite
 @onready var player = get_tree().get_first_node_in_group("Player")
+const EXPLOSION = preload("res://explosion.tscn")
 
-func _physics_process(delta): 
-	var direction_to_player=global_position.direction_to(player.global_position)
-	velocity = direction_to_player * SPEED
+func check_animation():
+	if velocity == Vector2.ZERO:
+		sprite.play("Idle")
+	elif velocity.x != 0:
+		sprite.play("Running")
+
+	# Declare variables for the speed and the detection range
+var SPEED = 50  # Adjust this to your desired speed
+var DETECTION_RANGE = 200  # Adjust this to your desired detection range
+
+func _physics_process(delta):
+	# Calculate the direction to the player
+	var direction_to_player = global_position.direction_to(player.global_position)
+	
+	# Calculate the distance to the player
+	var distance_to_player = global_position.distance_to(player.global_position)
+	
+	# Move towards the player only if within the detection range
+	if distance_to_player <= DETECTION_RANGE:
+		velocity = direction_to_player * SPEED
+	else:
+		# If outside the detection range, set velocity to zero
+		velocity = Vector2.ZERO
+
+	# Apply the velocity to the enemy (assuming you're using a KinematicBody2D or similar)
+	move_and_slide()
+	check_animation()
 	
 	if velocity.x > 0: 
 		sprite.flip_h = true 
 	else:
 		sprite.flip_h = false
-	
-	move_and_slide()
+
+
+
+func enemy_die(): 
+	queue_free()
+	var new_explosion = EXPLOSION.instantiate()
+	new_explosion.global_position = global_position
+	add_sibling(new_explosion)

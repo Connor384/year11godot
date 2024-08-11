@@ -1,0 +1,98 @@
+[gd_scene load_steps=19 format=3 uid="uid://cvp81l4jqf5bo"]
+
+[ext_resource type="Script" path="res://Spaceman.gd" id="1_dl0n5"]
+[ext_resource type="Texture2D" uid="uid://c8rbbptbus6gs" path="res://Sprites/Spaceman/jumping_falling/PlayerJumping0.png" id="2_8bpw1"]
+[ext_resource type="Texture2D" uid="uid://csf6iw0425m05" path="res://Sprites/Spaceman/jumping_falling/PlayerJumping1.png" id="3_pphvv"]
+[ext_resource type="Texture2D" uid="uid://crne15pf2bgqo" path="res://Sprites/Spaceman/Idle/PlayerIdle0.png" id="4_m5ro3"]
+[ext_resource type="Texture2D" uid="uid://t24q3cepsd71" path="res://Sprites/Spaceman/Idle/PlayerIdle1.png" id="5_d86j2"]
+[ext_resource type="Texture2D" uid="uid://cgsgfnqp2c0jt" path="res://Sprites/Spaceman/Running/run1.png" id="6_bebhq"]
+[ext_resource type="Texture2D" uid="uid://cjcqbdim7suu5" path="res://Sprites/Spaceman/Running/run2.png" id="7_73r8s"]
+[ext_resource type="Texture2D" uid="uid://77e2h2gxw0gh" path="res://Sprites/Spaceman/Running/run3.png" id="8_72bxa"]
+[ext_resource type="Texture2D" uid="uid://dhdqdtxt6qnmd" path="res://Sprites/Spaceman/Running/run4.png" id="9_ji2pt"]
+[ext_resource type="Texture2D" uid="uid://cwnygtdg70ucw" path="res://Sprites/Spaceman/Running/run5.png" id="10_q3sjw"]
+[ext_resource type="Texture2D" uid="uid://dqpyncdy305m0" path="res://Sprites/Spaceman/Running/run6.png" id="11_icqtn"]
+[ext_resource type="Texture2D" uid="uid://ctkb4f0e150sj" path="res://Sprites/Spaceman/Running/run7.png" id="12_q7o02"]
+[ext_resource type="Texture2D" uid="uid://bocc8u4nx3x0h" path="res://Sprites/Spaceman/Running/run8.png" id="13_gbcwy"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_asmfs"]
+radius = 7.0
+height = 24.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymmdy"]
+atlas = ExtResource("4_m5ro3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rntfe"]
+atlas = ExtResource("5_d86j2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_up1pl"]
+atlas = ExtResource("6_bebhq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3rrh2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8bpw1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pphvv")
+}],
+"loop": true,
+"name": &"Hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ymmdy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rntfe")
+}],
+"loop": true,
+"name": &"Idel",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_up1pl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_73r8s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_72bxa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ji2pt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_q3sjw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_icqtn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_q7o02")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_gbcwy")
+}],
+"loop": true,
+"name": &"Running",
+"speed": 15.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["Player"]]
+script = ExtResource("1_dl0n5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -1)
+shape = SubResource("CapsuleShape2D_asmfs")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -1)
+sprite_frames = SubResource("SpriteFrames_3rrh2")
+animation = &"Running"
+autoplay = "Running"

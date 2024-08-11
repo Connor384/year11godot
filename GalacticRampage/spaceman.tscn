@@ -51,7 +51,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_rntfe")
 }],
 "loop": true,
-"name": &"Idel",
+"name": &"Idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -94,5 +94,9 @@ shape = SubResource("CapsuleShape2D_asmfs")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -1)
 sprite_frames = SubResource("SpriteFrames_3rrh2")
-animation = &"Running"
-autoplay = "Running"
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.917352
+
+[node name="KnifeTimer" type="Timer" parent="."]
+wait_time = 5.0
