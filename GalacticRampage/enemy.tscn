@@ -55,8 +55,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_i6dmw"]
-radius = 7.0
-height = 28.0
+radius = 6.0
+height = 26.0
 
 [node name="EnemyGolem" type="CharacterBody2D" groups=["Enemy"]]
 collision_layer = 2
@@ -80,3 +80,9 @@ shape = SubResource("CapsuleShape2D_i6dmw")
 
 [node name="DamageTimer" type="Timer" parent="HurtBox" groups=["Enemy"]]
 wait_time = 2.0
+
+[node name="KnifeTimer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[connection signal="timeout" from="KnifeTimer" to="." method="_on_knife_timer_timeout"]

@@ -15,8 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://bocc8u4nx3x0h" path="res://Sprites/Spaceman/Running/run8.png" id="13_gbcwy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_asmfs"]
-radius = 7.0
-height = 24.0
+radius = 5.0
+height = 18.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ymmdy"]
 atlas = ExtResource("4_m5ro3")
@@ -88,11 +88,10 @@ animations = [{
 script = ExtResource("1_dl0n5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -1)
 shape = SubResource("CapsuleShape2D_asmfs")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(1, -1)
+scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_3rrh2")
 animation = &"Idle"
 autoplay = "Idle"
