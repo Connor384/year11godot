@@ -10,6 +10,8 @@ const KNIFE_2 = preload("res://knife2.tscn")
 @onready var world = get_node('/root/world')
 var direction = Vector2.ZERO
 
+
+
 func check_animation():
 	if velocity == Vector2.ZERO:
 		sprite.play("Idle")
@@ -55,6 +57,7 @@ func enemy_die():
 	var new_explosion = EXPLOSION.instantiate()
 	new_explosion.global_position = global_position
 	add_sibling(new_explosion)
+	GameManager.score += 1
 
 
 

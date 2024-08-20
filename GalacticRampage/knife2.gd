@@ -1,6 +1,10 @@
 extends Area2D
 
-@export var SPEED = 500
+
+
+@export var SPEED = 1000
+
+
 
 func _ready():
 	pass
