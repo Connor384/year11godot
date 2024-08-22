@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://bddlr2iixymnw"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_n00nj"]
+[ext_resource type="Texture2D" uid="uid://cqijalpryqbbp" path="res://Scenes/procjam-RPHStudio-1.0.0-windows (2)/procjam-RPHStudio-1.0.0-windows/procjam-RPHStudio-1.0.0/sprites/background.png" id="2_xo1fc"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 250.0
+offset_top = 250.0
+offset_right = -281.0
+offset_bottom = -274.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n00nj")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 35.0
+offset_top = 27.0
+offset_right = 591.0
+offset_bottom = 423.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(356, 94)
+scale = Vector2(0.798319, 0.798319)
+texture = ExtResource("2_xo1fc")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
