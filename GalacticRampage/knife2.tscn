@@ -4,12 +4,16 @@
 [ext_resource type="Script" path="res://knife2.gd" id="1_ymh4n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xnn0b"]
-size = Vector2(16, 4)
+size = Vector2(15, 4)
 
 [node name="Knife" type="Area2D"]
+collision_layer = 3
+collision_mask = 3
+collision_priority = 2.0
 script = ExtResource("1_ymh4n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_xnn0b")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

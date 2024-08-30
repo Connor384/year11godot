@@ -35,13 +35,14 @@ text = "Play"
 layout_mode = 2
 text = "Quit"
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(356, 94)
-scale = Vector2(0.798319, 0.798319)
+position = Vector2(342, 78)
+scale = Vector2(1.3322, 1.3322)
 texture = ExtResource("2_xo1fc")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(333, 71)
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

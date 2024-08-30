@@ -69,7 +69,7 @@ shape = SubResource("CapsuleShape2D_4vkdx")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_jagg4")
-animation = &"Idle"
+animation = &"Running"
 
 [node name="HurtBox" type="Area2D" parent="."]
 collision_layer = 0

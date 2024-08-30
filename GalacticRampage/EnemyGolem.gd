@@ -41,7 +41,6 @@ func _physics_process(delta):
 	# Apply the velocity to the enemy (assuming you're using a KinematicBody2D or similar)
 	move_and_slide()
 	check_animation()
-	
 
 
 
@@ -57,7 +56,7 @@ func enemy_die():
 	var new_explosion = EXPLOSION.instantiate()
 	new_explosion.global_position = global_position
 	add_sibling(new_explosion)
-	GameManager.score += 1
+	GameManager.score += 100
 
 
 

@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 
 
-@export var SPEED = 100.0
+@export var SPEED = 100
 @export var ACCELERATION = 20.0
-@export var FRICTION = 10.0
+@export var FRICTION = 20.0
 @onready var sprite = $Sprite
 const KNIFE = preload("res://knife.tscn")
 @onready var world = get_node('/root/World')
@@ -57,6 +57,8 @@ func _process(delta):
 		shoot()
 		# Reset the time since the last shot
 		time_since_last_shot = 0.0
+
+
 
 func shoot():
 	var new_bullet = BULLET.instantiate()

@@ -2,7 +2,9 @@ extends Area2D
 
 
 
-@export var SPEED = 1000
+@onready var sprite = $Sprite
+@onready var player = get_tree().get_first_node_in_group("Player")
+@export var SPEED = 1000 
 
 
 
