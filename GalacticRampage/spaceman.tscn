@@ -99,3 +99,5 @@ frame_progress = 0.917352
 
 [node name="KnifeTimer" type="Timer" parent="."]
 wait_time = 5.0
+
+[node name="Muzzle" type="Marker2D" parent="."]

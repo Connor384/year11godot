@@ -21,7 +21,7 @@ func check_animation():
 
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	direction = Input.get_vector("left","right","up","down").normalized()
@@ -61,7 +61,13 @@ func _process(delta):
 
 
 func shoot():
-	var new_bullet = BULLET.instantiate()
+	var new_bullet = KNIFE.instantiate()
 	new_bullet.global_position = global_position
+	new_bullet.position.x -= 5
 	new_bullet.look_at(get_global_mouse_position())
 	add_sibling(new_bullet)
+
+
+
+#func check_collisions():
+	#var collisions = $HurtBox.get_overlapping_blodies()

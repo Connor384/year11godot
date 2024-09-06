@@ -15,3 +15,8 @@ func _ready():
 
 func _process(delta):
 	translate(Vector2.RIGHT.rotated(rotation) * SPEED * delta)
+
+
+
+func _on_body_entered(body: Node2D) -> void:
+	queue_free()

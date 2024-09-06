@@ -9,6 +9,7 @@ const EXPLOSION = preload("res://explosion.tscn")
 const KNIFE_2 = preload("res://knife2.tscn")
 @onready var world = get_node('/root/world')
 var direction = Vector2.ZERO
+@export var health = 10
 
 
 
@@ -51,12 +52,15 @@ func _physics_process(delta):
 
 
 
-func enemy_die(): 
-	queue_free()
-	var new_explosion = EXPLOSION.instantiate()
-	new_explosion.global_position = global_position
-	add_sibling(new_explosion)
-	GameManager.score += 100
+func take_damage(dmg): 
+	health -= dmg
+	if health <= 0:
+		
+		queue_free()
+		var new_explosion = EXPLOSION.instantiate()
+		new_explosion.global_position = global_position
+		add_sibling(new_explosion)
+		GameManager.score += 100
 
 
 
