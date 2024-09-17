@@ -87,7 +87,7 @@ animations = [{
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_dl0n5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="SpacemanCollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_asmfs")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
@@ -101,3 +101,5 @@ frame_progress = 0.917352
 wait_time = 5.0
 
 [node name="Muzzle" type="Marker2D" parent="."]
+
+[node name="DamageTimer" type="Timer" parent="."]

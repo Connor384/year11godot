@@ -66,8 +66,3 @@ func shoot():
 	new_bullet.position.x -= 5
 	new_bullet.look_at(get_global_mouse_position())
 	add_sibling(new_bullet)
-
-
-
-#func check_collisions():
-	#var collisions = $HurtBox.get_overlapping_blodies()

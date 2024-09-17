@@ -1,4 +1,9 @@
-[gd_scene format=3 uid="uid://bsr8x6l0rfjg7"]
+[gd_scene load_steps=3 format=3 uid="uid://bsr8x6l0rfjg7"]
+
+[ext_resource type="Texture2D" uid="uid://cqijalpryqbbp" path="res://Scenes/procjam-RPHStudio-1.0.0-windows (2)/procjam-RPHStudio-1.0.0-windows/procjam-RPHStudio-1.0.0/sprites/background.png" id="1_5066m"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_notg3"]
+font_size = 30
 
 [node name="end screen" type="Control"]
 layout_mode = 3
@@ -7,3 +12,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+offset_left = -106.0
+offset_top = -21.0
+offset_right = 415.0
+offset_bottom = 159.0
+text = "SCORE: "
+label_settings = SubResource("LabelSettings_notg3")
+
+[node name="Background" type="Sprite2D" parent="."]
+scale = Vector2(1.332, 1.332)
+texture = ExtResource("1_5066m")
+
+[node name="Camera2D" type="Camera2D" parent="."]

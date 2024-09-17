@@ -15,4 +15,5 @@ func _process(delta: float) -> void:
 
 
 func _on_timer_timeout() -> void:
-	GameManager.score -= 1
+	if GameManager.score > 0:
+		GameManager.score -= 1
